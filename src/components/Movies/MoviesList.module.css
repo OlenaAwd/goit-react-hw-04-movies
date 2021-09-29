@@ -1,0 +1,16 @@
+.item:hover {
+  color: rgb(201, 94, 115);
+}
+
+.item:not(:first-child) {
+  margin-top: 4px;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.link:hover {
+  color: inherit;
+}

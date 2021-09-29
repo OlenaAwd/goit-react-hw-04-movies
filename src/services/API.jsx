@@ -3,10 +3,14 @@ import axios from "axios";
 const API_KEY = "dbfc7d42567d2f9d036d21962dd7e4e7";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export default function fetchMovies(url = "") {
+function fetchMovies(url) {
   return axios.get(url).then((response) => {
     return response.data;
   });
+}
+
+export function fetchMovie(movieId) {
+  return fetchMovies(`${BASE_URL}/3/movie/${movieId}?api_key=${API_KEY}`);
 }
 
 // https://developers.themoviedb.org/3/trending/get-trending - список самых популярных фильмов на сегодня для создания коллекции на главной странице.
@@ -39,3 +43,5 @@ export function fetchMovieReviews(movieId, page) {
     `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&page=${page}`
   );
 }
+
+export default fetchMovies;
