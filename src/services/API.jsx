@@ -10,20 +10,20 @@ function fetchMovies(url) {
 }
 
 export function fetchMovie(movieId) {
-  return fetchMovies(`${BASE_URL}/3/movie/${movieId}?api_key=${API_KEY}`);
+  return fetchMovies(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
 }
 
 // https://developers.themoviedb.org/3/trending/get-trending - список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-export function fetchTrending(page) {
+export function fetchTrending() {
   return fetchMovies(
-    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`
+    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=1&`
   );
 }
 
 // https://developers.themoviedb.org/3/search/search-movies - поиск кинофильма по ключевому слову на странице фильмов.
-export function fetchMovieQuery(input, page) {
+export function fetchMovieQuery(query) {
   return fetchMovies(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${input}&page=${page}`
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&page=1&`
   );
 }
 
@@ -38,9 +38,9 @@ export function fetchMovieCredits(movieId) {
 }
 
 // https://developers.themoviedb.org/3/movies/get-movie-reviews - запрос обзоров для страницы кинофильма.
-export function fetchMovieReviews(movieId, page) {
+export function fetchMovieReviews(movieId) {
   return fetchMovies(
-    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&page=${page}`
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&page=1`
   );
 }
 
