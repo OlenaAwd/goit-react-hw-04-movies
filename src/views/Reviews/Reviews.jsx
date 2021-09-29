@@ -19,7 +19,7 @@ export default function Reviews({ movieId }) {
 
   return (
     <>
-      {noReviews && <p>We do not have any rewiews for this movie</p>}
+      {noReviews && <p>We do not have any reviews for this movie</p>}
 
       {reviews && (
         <ul>
